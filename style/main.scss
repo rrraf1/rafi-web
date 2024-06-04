@@ -1,0 +1,21 @@
+@import "./components/navbar";
+@import "./components/cursor";
+@import "./components/scrollbar";
+@import "./components/scrollbutton";
+
+@import "./views/LandingPage";
+@import "./views/AboutPage";
+
+@import "./fonts";
+body {
+  overflow-x: hidden;
+  background: #f8f4e1;
+  color: #543310;
+  margin: 0;
+  padding: 0;
+
+  ::selection {
+    background-color: #543310;
+    color: #f8f4e1;
+  }
+}

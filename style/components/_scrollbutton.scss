@@ -1,0 +1,14 @@
+.arrow-container {
+  background-color: #74512d;
+  border-radius: 10px;
+  .arrow__item {
+    img {
+      width: 40px;
+      height: auto;
+    }
+  }
+  &:hover {
+    transform: translateY(-3px);
+    transition: ease-in-out 0.1s;
+  }
+}

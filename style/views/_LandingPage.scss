@@ -1,0 +1,15 @@
+#landing-page {
+  .landing-text {
+    .author__description {
+      width: 70%;
+      font-weight: 200;
+    }
+  }
+
+  .decoration-1 {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
