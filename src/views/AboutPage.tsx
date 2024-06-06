@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import { Box, Grid } from '@mui/material';
 import gsap from 'gsap';
 import { useGSAP } from "@gsap/react";
