@@ -1,10 +1,24 @@
 import { useRef } from "react";
+import gsap from 'gsap';
+import { useGSAP } from "@gsap/react";
+
+import Divider from "../components/Divider";
 import { Box, Grid } from "@mui/material";
 import ScrollButton from "../components/ScrollBottom";
 import decoration1 from "../assets/decoration-1.svg";
 
 function LandingPage() {
+    const container = useRef(null);
     const aboutRef = useRef(null);
+    const dynamicText = "01"
+
+    useGSAP(() => {
+        gsap.fromTo('.author__name', { x: -100 }, {x: 0});
+        gsap.fromTo('.author__description', { x: -120 }, {x: 0});
+        gsap.fromTo('.decoration-1', { x: 120 }, {x: 0});
+        gsap.fromTo('.scroll-btn', { y: 120 }, {y: 0});
+    }, [container]);
+
 
     return (
         <main id="landing-page">
@@ -26,7 +40,7 @@ function LandingPage() {
                         <Box>
                             <strong>
                                 <h1 className="author__name">
-                                    Hi, I'am Rafi Rizqullah Ramadhan
+                                    Rafi Rizqullah Ramadhan
                                 </h1>
                             </strong>
                             <h2 className="author__description">
@@ -38,10 +52,11 @@ function LandingPage() {
                     <img src={decoration1} alt="" className="decoration-1" />
                 </Grid>
                 <Grid item width={"100%"} marginTop={"-260px"}>
-                    <center>
-                        <ScrollButton scrollRef={aboutRef} />
+                    <center className="scroll-btn">
+                        <ScrollButton scrollRef={aboutRef}  />
                     </center>
                 </Grid>
+                <Divider text={dynamicText}></Divider>
             </Grid>
             <div ref={aboutRef}>
                 {/* Empty div to assign ref */}

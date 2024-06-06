@@ -27,9 +27,11 @@ const CursorCircle = styled.div`
   transform: translate(-50%, -50%);
   transition: width 0.3s, height 0.3s;
 `;
+
 const Cursor: React.FC = () => {
     const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
     const [cursorSize, setCursorSize] = useState(20);
+    const [isVisible, setIsVisible] = useState(window.innerWidth >= 950);
     const navItemsRef = useRef<HTMLLIElement[]>([]);
 
     // Fungsi untuk mengupdate posisi cursor tambahan
@@ -57,6 +59,7 @@ const Cursor: React.FC = () => {
     // Menggunakan useEffect untuk menambahkan event listener pada elemen .nav__item
     useEffect(() => {
         const navItems = Array.from(document.querySelectorAll('.nav__item')) as HTMLLIElement[];
+        const arrowItems = Array.from(document.querySelectorAll('.arrow-container')) as HTMLLIElement[];
         navItemsRef.current = navItems;
 
         const handleMouseEnterItem: EventListener = () => {
@@ -72,13 +75,38 @@ const Cursor: React.FC = () => {
             item.addEventListener('mouseleave', handleMouseLeaveItem);
         });
 
+        arrowItems.forEach((item) => {
+            item.addEventListener('mouseenter', handleMouseEnterItem);
+            item.addEventListener('mouseleave', handleMouseLeaveItem);
+        });
+
         return () => {
             navItems.forEach((item) => {
                 item.removeEventListener('mouseenter', handleMouseEnterItem);
                 item.removeEventListener('mouseleave', handleMouseLeaveItem);
             });
+            arrowItems.forEach((item) => {
+                item.removeEventListener('mouseenter', handleMouseEnterItem);
+                item.removeEventListener('mouseleave', handleMouseLeaveItem);
+            });
         };
     }, []);
+
+    // Menggunakan useEffect untuk memantau perubahan ukuran jendela
+    useEffect(() => {
+        const handleResize = () => {
+            setIsVisible(window.innerWidth >= 950);
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
+    if (!isVisible) {
+        return null;
+    }
 
     return (
         <CursorContainer>

@@ -2,11 +2,15 @@
 @import "./components/cursor";
 @import "./components/scrollbar";
 @import "./components/scrollbutton";
+@import "./components//divider";
 
 @import "./views/LandingPage";
 @import "./views/AboutPage";
 
 @import "./fonts";
+* {
+  scroll-behavior: smooth;
+}
 body {
   overflow-x: hidden;
   background: #f8f4e1;
