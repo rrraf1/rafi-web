@@ -1,0 +1,15 @@
+.card-container {
+  width: 120px;
+  height: 120px;
+  background-color: #e0e0e0;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.1s ease-in-out;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}

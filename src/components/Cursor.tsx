@@ -60,6 +60,8 @@ const Cursor: React.FC = () => {
     useEffect(() => {
         const navItems = Array.from(document.querySelectorAll('.nav__item')) as HTMLLIElement[];
         const arrowItems = Array.from(document.querySelectorAll('.arrow-container')) as HTMLLIElement[];
+        const profileItems = Array.from(document.querySelectorAll('.profile__item')) as HTMLLIElement[];
+        const cardItems = Array.from(document.querySelectorAll('.card-container')) as HTMLLIElement[];
         navItemsRef.current = navItems;
 
         const handleMouseEnterItem: EventListener = () => {
@@ -79,6 +81,14 @@ const Cursor: React.FC = () => {
             item.addEventListener('mouseenter', handleMouseEnterItem);
             item.addEventListener('mouseleave', handleMouseLeaveItem);
         });
+        profileItems.forEach((item) => {
+            item.addEventListener('mouseenter', handleMouseEnterItem);
+            item.addEventListener('mouseleave', handleMouseLeaveItem);
+        });
+        cardItems.forEach((item) => {
+            item.addEventListener('mouseenter', handleMouseEnterItem);
+            item.addEventListener('mouseleave', handleMouseLeaveItem);
+        });
 
         return () => {
             navItems.forEach((item) => {
@@ -86,6 +96,14 @@ const Cursor: React.FC = () => {
                 item.removeEventListener('mouseleave', handleMouseLeaveItem);
             });
             arrowItems.forEach((item) => {
+                item.removeEventListener('mouseenter', handleMouseEnterItem);
+                item.removeEventListener('mouseleave', handleMouseLeaveItem);
+            });
+            profileItems.forEach((item) => {
+                item.removeEventListener('mouseenter', handleMouseEnterItem);
+                item.removeEventListener('mouseleave', handleMouseLeaveItem);
+            });
+            cardItems.forEach((item) => {
                 item.removeEventListener('mouseenter', handleMouseEnterItem);
                 item.removeEventListener('mouseleave', handleMouseLeaveItem);
             });

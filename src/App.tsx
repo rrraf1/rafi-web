@@ -3,6 +3,8 @@ import { loadData } from './api/data';
 
 import LandingPage from "./views/LandingPage";
 import About from "./views/AboutPage";
+import Skills from './views/SkillsPage';
+
 import Loader from "./components/Loader";
 import Navbar from "./components/Navbar";
 import Cursor from "./components/Cursor"
@@ -26,6 +28,7 @@ function App() {
       <Navbar />
       <LandingPage />
       <About />
+      <Skills />
     </>
   );
 }
