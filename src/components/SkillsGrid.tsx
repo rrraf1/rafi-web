@@ -11,15 +11,16 @@ import node from "../assets/node.svg";
 import python from "../assets/python.svg";
 import scss from "../assets/scss.svg";
 import vue from "../assets/vue.svg";
+import react from "../assets/react.svg";
 
-const images = [css, express, html, js, node, python, scss, vue];
+const images = [css, html, js, node, python, scss, vue, react, express];
 
 const SkillsGrid: React.FC = () => {
     return (
         <Grid container spacing={13} width={"85%"}>
             {images.map((image, index) => (
                 <Grid item xs={2.4} key={index} marginTop={"-30vh"}>
-                    <SkillCard image={image} />
+                    <SkillCard image={image}/>
                 </Grid>
             ))}
         </Grid>

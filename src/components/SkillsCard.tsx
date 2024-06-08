@@ -8,8 +8,8 @@ interface SkillCardProps {
 
 const SkillCard: React.FC<SkillCardProps> = ({ image }) => {
     return (
-        <Grid className='card-container noselect'>
-            <img src={image} alt="Skill" style={{ maxWidth: '80%', maxHeight: '80%' }} />
+        <Grid className='card-skills-container noselect'>
+            <img src={image} alt="Skill" style={{ maxWidth: '80%', maxHeight: '80%' }}/>
         </Grid>
     );
 };

@@ -46,7 +46,7 @@ function LandingPage() {
               </h2>
             </Box>
           </Grid>
-          <img src={decoration1} alt="" className="decoration-1 noselectx" />
+          <img src={decoration1} alt="" className="decoration-1 noselect" />
         </Grid>
         <Grid item width={"100%"} marginTop={"-260px"}>
           <center className="scroll-btn">

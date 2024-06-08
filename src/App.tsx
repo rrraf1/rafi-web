@@ -4,6 +4,7 @@ import { loadData } from './api/data';
 import LandingPage from "./views/LandingPage";
 import About from "./views/AboutPage";
 import Skills from './views/SkillsPage';
+import Experience from './views/ExperiencePage';
 
 import Loader from "./components/Loader";
 import Navbar from "./components/Navbar";
@@ -29,6 +30,7 @@ function App() {
       <LandingPage />
       <About />
       <Skills />
+      <Experience />
     </>
   );
 }

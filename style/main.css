@@ -18,10 +18,38 @@
 }
 
 @media only screen and (max-width: 1100px) {
-  .cursorContainer {
+  .cursor-container {
     display: none;
   }
 }
+.cursor-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.cursor__item {
+  border: 1px solid black;
+  border-radius: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s, background-color 0.3s, color 0.3s;
+}
+
+.cursor__item.hovered {
+  background-color: #f8f4e1;
+  color: #74512d;
+}
+
+.see-project {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 /* Untuk WebKit-based browser (Chrome, Safari, Opera) */
 ::-webkit-scrollbar {
   width: 12px; /* Lebar scrollbar */
@@ -82,7 +110,7 @@
   height: fit-content;
 }
 
-.card-container {
+.card-skills-container {
   width: 120px;
   height: 120px;
   background-color: #e0e0e0;
@@ -93,7 +121,7 @@
   justify-content: center;
   transition: transform 0.1s ease-in-out;
 }
-.card-container:hover {
+.card-skills-container:hover {
   transform: scale(1.1);
 }
 
@@ -101,6 +129,33 @@
   -webkit-user-select: none; /* Safari */
   -moz-user-select: none; /* Firefox */ /* IE 10+ */
   user-select: none; /* Standard syntax */
+}
+
+.card-experience-container {
+  position: relative;
+}
+.card-experience-container:hover .card__overlay {
+  display: block;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: ease-in-out 0.2s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 15px;
+  width: 100%;
+  height: 100%;
+}
+
+.card__thumbnail {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  border-radius: 15px;
+}
+
+.card__overlay {
+  display: none;
 }
 
 #landing-page .landing-text .author__description {

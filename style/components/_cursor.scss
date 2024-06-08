@@ -1,5 +1,33 @@
 @media only screen and (max-width: 1100px) {
-  .cursorContainer {
+  .cursor-container {
     display: none;
   }
+}
+
+.cursor-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.cursor__item {
+  border: 1px solid black;
+  border-radius: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s, background-color 0.3s, color 0.3s;
+}
+
+.cursor__item.hovered {
+  background-color: #f8f4e1;
+  color: #74512d;
+}
+
+.see-project {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
