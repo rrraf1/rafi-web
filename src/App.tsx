@@ -1,28 +1,40 @@
-import { useState, useEffect } from 'react';
-import { loadData } from './api/data';
+import { useState, useEffect, useRef } from "react";
+import { loadData } from "./api/data";
 
 import LandingPage from "./views/LandingPage";
 import About from "./views/AboutPage";
-import Skills from './views/SkillsPage';
-import Experience from './views/ExperiencePage';
+import Skills from "./views/SkillsPage";
+import Experience from "./views/ExperiencePage";
 
 import Loader from "./components/Loader";
 import Navbar from "./components/Navbar";
-import Cursor from "./components/Cursor"
+import Cursor from "./components/Cursor";
 
 function App() {
   const [loading, setLoading] = useState(true);
+  const [minLoadingDone, setMinLoadingDone] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    Promise.all([loadData()]) // Tambahkan lebih banyak promise jika perlu
-      .then(() => {
-        setLoading(false);
-      });
+    const loadPromise = loadData();
+
+    // Ensure the intro video is shown for at least 4 seconds
+    const minLoadingTime = new Promise<void>((resolve) => {
+      setTimeout(() => {
+        setMinLoadingDone(true);
+        resolve();
+      }, 4000);
+    });
+
+    Promise.all([loadPromise, minLoadingTime]).then(() => {
+      setLoading(false);
+    });
   }, []);
 
   if (loading) {
-    return <Loader />;
+    return <Loader ref={videoRef} />;
   }
+
   return (
     <>
       <Cursor />
