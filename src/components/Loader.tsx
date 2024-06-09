@@ -2,7 +2,7 @@
 import React from "react";
 import introVideo from "../assets/intro.mp4";
 
-const Loader = React.forwardRef<HTMLVideoElement>((props, ref) => {
+const Loader = React.forwardRef<HTMLVideoElement>((_, ref) => {
   return (
     <div style={loaderStyle}>
       <video ref={ref} style={videoStyle} src={introVideo} autoPlay muted />

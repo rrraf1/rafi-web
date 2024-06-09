@@ -12,7 +12,6 @@ import Cursor from "./components/Cursor";
 
 function App() {
   const [loading, setLoading] = useState(true);
-  const [minLoadingDone, setMinLoadingDone] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -21,7 +20,6 @@ function App() {
     // Ensure the intro video is shown for at least 4 seconds
     const minLoadingTime = new Promise<void>((resolve) => {
       setTimeout(() => {
-        setMinLoadingDone(true);
         resolve();
       }, 4000);
     });
