@@ -207,6 +207,8 @@ body {
   overflow-x: hidden;
   background: #f8f4e1;
   color: #543310;
+  width: 100%;
+  height: 100%;
   margin: 0;
   padding: 0;
 }
