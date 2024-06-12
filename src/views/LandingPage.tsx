@@ -27,6 +27,7 @@ function LandingPage() {
           display={"flex"}
           justifyContent={"center"}
           height={"100vh"}
+          width={"100%"}
         >
           <Grid
             item

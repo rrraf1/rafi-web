@@ -1,4 +1,5 @@
 .card-skills-container {
+  justify-content: space-between;
   width: 120px;
   height: 120px;
   background-color: #e0e0e0;
@@ -8,8 +9,23 @@
   align-items: center;
   justify-content: center;
   transition: transform 0.1s ease-in-out;
+  margin-left: 2em;
+  margin-right: 2em;
 
   &:hover {
     transform: scale(1.1);
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .card-skills-container {
+    width: 90px;
+    height: 90px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .card-skills-container {
+    width: 70px;
+    height: 70px;
   }
 }

@@ -17,7 +17,7 @@ const images = [css, html, js, node, python, scss, vue, react, express];
 
 const SkillsGrid: React.FC = () => {
     return (
-        <Grid container spacing={13} width={"85%"}>
+        <Grid container width={"85%"}>
             {images.map((image, index) => (
                 <Grid item xs={2.4} key={index} marginTop={"-30vh"}>
                     <SkillCard image={image}/>

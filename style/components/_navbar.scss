@@ -1,9 +1,15 @@
-
 .nav-container {
   width: 95%;
   margin-left: 35px;
   margin-top: 30px;
   border-bottom: 3px solid #092230;
+}
+
+.nav__list {
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+  margin-right: 70px;
 }
 
 .nav__item {
@@ -15,5 +21,30 @@
 
   &:hover {
     cursor: pointer;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .nav__item {
+    font-size: 18px;
+  }
+
+  .nav__list {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    margin-right: 50px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .nav__item {
+    font-size: 16px;
+  }
+
+  .nav__list {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin-right: 40px;
   }
 }

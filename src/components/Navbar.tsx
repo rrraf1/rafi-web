@@ -24,7 +24,7 @@ function Navbar() {
     <nav className="nav-container">
       <Grid container justifyContent="end">
         <Grid item>
-          <Box sx={{ display: 'flex', justifyContent: 'space-between', gap: "50px", marginRight: "70px" }}>
+          <Box className="nav__list">
             <li className="nav__item" onClick={() => handleScroll('about')}>About</li>
             <li className="nav__item" onClick={() => handleScroll('skills')}>Skills</li>
             <li className="nav__item" onClick={() => handleScroll('experience')}>Experience</li>
