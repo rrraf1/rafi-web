@@ -33,7 +33,7 @@ function LandingPage() {
             item
             width={"85%"}
             height={"fit-content"}
-            marginTop={"10vw"}
+            marginTop={"20vh"}
             fontFamily={"Proza Libre"}
             className="landing-text"
           >

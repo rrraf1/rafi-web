@@ -1,0 +1,13 @@
+@media   only screen and (max-width: 1028px) {
+    .decoration-1 {
+        width: 50%;
+        height: 50%;
+        margin-top: -1vh;
+        margin-right: -10vh;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .decoration-1, .decoration-2 {
+        display: none;
+    }
+}

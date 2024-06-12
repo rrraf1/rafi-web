@@ -13,3 +13,9 @@
     transform: translateY(-40%);
   }
 }
+
+@media only screen and (max-width: 768px) {
+  .landing-text {
+    margin-top: 60vh;
+  }
+}

@@ -97,7 +97,7 @@ function About() {
         <Divider text={dynamicText}></Divider>
       </Grid>
       <Grid marginTop={"-40vh"} position={"absolute"}>
-        <img src={decoration2} className="noselect" alt="" />
+        <img src={decoration2} className="noselect decoration-2" alt="" />
       </Grid>
     </main>
   );

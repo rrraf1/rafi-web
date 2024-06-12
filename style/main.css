@@ -202,6 +202,19 @@
   display: none;
 }
 
+@media only screen and (max-width: 1028px) {
+  .decoration-1 {
+    width: 50%;
+    height: 50%;
+    margin-top: -1vh;
+    margin-right: -10vh;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .decoration-1, .decoration-2 {
+    display: none;
+  }
+}
 #landing-page .landing-text .author__description {
   width: 70%;
   font-weight: 200;
@@ -213,6 +226,11 @@
   transform: translateY(-40%);
 }
 
+@media only screen and (max-width: 768px) {
+  .landing-text {
+    margin-top: 60vh;
+  }
+}
 #about-page {
   width: 100%;
 }
@@ -290,6 +308,14 @@
   }
   h2 {
     font-size: 18px;
+  }
+}
+@media only screen and (max-width: 688px) {
+  h1 {
+    font-size: 22px;
+  }
+  h2 {
+    font-size: 16px;
   }
 }
 * {
