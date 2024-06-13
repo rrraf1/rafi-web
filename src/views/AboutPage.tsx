@@ -3,8 +3,8 @@ import { Box, Grid } from "@mui/material";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
-import ProfileImage from "../components/ProfilePicture";
-import Divider from "../components/Divider";
+import ProfileImage from "../components/about/ProfilePicture";
+import Divider from "../components/common/Divider";
 
 import sideProfile from "../assets/side-profile.jpeg";
 import decoration2 from "../assets/decoration-2.svg";

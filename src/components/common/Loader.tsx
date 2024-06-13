@@ -1,6 +1,6 @@
 // src/components/Loader.tsx
 import React from "react";
-import introVideo from "../assets/intro.mp4";
+import introVideo from "@assets/intro.mp4";
 
 const Loader = React.forwardRef<HTMLVideoElement>((_, ref) => {
   return (

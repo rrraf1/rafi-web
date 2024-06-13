@@ -1,6 +1,6 @@
 import React from "react";
 import { Grid, Box } from "@mui/material";
-import arrow from "../assets/arrow-down.png";
+import arrow from "@assets/arrow-down.png";
 
 function ScrollButton({ scrollRef }: { scrollRef: React.RefObject<any> }) {
     const handleClick = () => {

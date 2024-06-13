@@ -6,9 +6,9 @@ import About from "./views/AboutPage";
 import Skills from "./views/SkillsPage";
 import Experience from "./views/ExperiencePage";
 
-import Loader from "./components/Loader";
-import Navbar from "./components/Navbar";
-import Cursor from "./components/Cursor";
+import Loader from "./components/common/Loader";
+import Navbar from "./components/common/Navbar";
+import Cursor from "./components/common/Cursor";
 
 function App() {
   const [loading, setLoading] = useState(true);

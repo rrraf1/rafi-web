@@ -3,8 +3,8 @@ import React from "react";
 import { Grid } from "@mui/material";
 import LazyExperienceCard from "./LazyExperienceCard";
 
-import orbit from "../assets/orbit.png";
-import absensi from "../assets/absensi.png";
+import orbit from "@assets/orbit.png";
+import absensi from "@assets/absensi.png";
 
 const images = [orbit, absensi];
 

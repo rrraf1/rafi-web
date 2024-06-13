@@ -2,9 +2,9 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
-import Divider from "../components/Divider";
+import Divider from "../components/common/Divider";
 import { Box, Grid } from "@mui/material";
-import ScrollButton from "../components/ScrollBottom";
+import ScrollButton from "../components/common/ScrollBottom";
 import decoration1 from "../assets/decoration-1.svg";
 
 function LandingPage() {

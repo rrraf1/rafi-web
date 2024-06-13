@@ -4,7 +4,7 @@ import {
   useCursorPosition,
   useCursorVisibility,
   useHoverEffect,
-} from "../hooks/cursorData";
+} from "../../hooks/cursorData";
 
 const Cursor: React.FC = () => {
   const cursorPosition = useCursorPosition();

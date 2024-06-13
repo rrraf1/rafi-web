@@ -1,5 +1,5 @@
 import { Grid } from "@mui/material";
-import ExperienceGrid from "../components/ExperienceGrid";
+import ExperienceGrid from "../components/experience/ExperienceGrid";
 
 function Experience() {
     return(
