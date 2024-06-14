@@ -7,7 +7,7 @@ interface ExperienceCardProps {
 
 const ExperienceCard: React.FC<ExperienceCardProps> = ({ image }) => {
     return (
-        <Grid container className="card-experience-container noselect">
+        <Grid container justifyContent={"center"} className="card-experience-container noselect">
             <img src={image} className="card__thumbnail"/>
             <Grid item className="card__overlay"></Grid>
         </Grid>

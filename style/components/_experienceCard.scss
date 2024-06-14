@@ -1,5 +1,7 @@
 .card-experience-container {
   position: relative;
+  margin-top: -15vw;
+
   &:hover {
     .card__overlay {
       display: block;
@@ -24,4 +26,57 @@
 
 .card__overlay {
   display: none;
+}
+
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10vw;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .card__thumbnail {
+    width: 100%;
+    height: 100%;
+  }
+  .card-experience-container {
+    &:hover {
+      .card__overlay {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .card-experience-container {
+    margin-top: -30vw;
+  }
+  .card-grid {
+    gap: 20vw;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .card-experience-container {
+    margin-top: -50vw;
+  }
+  .card-grid {
+    gap: 10vw;
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  .card-experience-container {
+    margin-top: -70vw;
+  }
+  .card-grid {
+    gap: 10vw;
+  }
 }

@@ -26,8 +26,8 @@ function LandingPage() {
           container
           display={"flex"}
           justifyContent={"center"}
-          height={"100vh"}
           width={"100%"}
+          className="landing-container"
         >
           <Grid
             item

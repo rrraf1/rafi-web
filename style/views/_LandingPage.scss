@@ -14,8 +14,14 @@
   }
 }
 
-@media only screen and (max-width: 768px) {
-  .landing-text {
-    margin-top: 60vh;
+@media only screen and (min-height: 768px) {
+  .landing-container {
+    height: 70vh;
+  }
+}
+
+@media only screen and (min-height: 1px) {
+  .landing-container {
+    height: 100vh;
   }
 }
