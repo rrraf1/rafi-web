@@ -17,15 +17,25 @@
   }
 }
 
+.skills-grid {
+  margin-bottom: 5vh;
+}
+
 @media only screen and (max-width: 1000px) {
   .card-skills-container {
     width: 90px;
     height: 90px;
+  }
+  .skills-grid {
+    margin-bottom: 20vh;
   }
 }
 @media only screen and (max-width: 768px) {
   .card-skills-container {
     width: 70px;
     height: 70px;
+  }
+  .skills-grid {
+    margin-bottom: 20vh  ;
   }
 }
