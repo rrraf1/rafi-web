@@ -4,13 +4,11 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
 import ProfileImage from "../components/about/ProfilePicture";
-import Divider from "../components/common/Divider";
 
 import sideProfile from "../assets/side-profile.jpeg";
 import decoration2 from "../assets/decoration-2.svg";
 
 function About() {
-  const dynamicText = "02";
 
   const container = useRef(null);
   const profileRef = useRef<HTMLImageElement | null>(null);
@@ -94,7 +92,6 @@ function About() {
         </Grid>
       </Grid>
       <Grid>
-        <Divider text={dynamicText}></Divider>
       </Grid>
       <Grid marginTop={"-40vh"} position={"absolute"}>
         <img src={decoration2} className="noselect decoration-2" alt="" />

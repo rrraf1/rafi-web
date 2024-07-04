@@ -2,7 +2,6 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
-import Divider from "../components/common/Divider";
 import { Box, Grid } from "@mui/material";
 import ScrollButton from "../components/common/ScrollBottom";
 import decoration1 from "../assets/decoration-1.svg";
@@ -10,7 +9,6 @@ import decoration1 from "../assets/decoration-1.svg";
 function LandingPage() {
   const container = useRef(null);
   const aboutRef = useRef(null);
-  const dynamicText = "01";
 
   useGSAP(() => {
     gsap.fromTo(".author__name", { x: -100 }, { x: 0 });
@@ -54,7 +52,6 @@ function LandingPage() {
             <ScrollButton scrollRef={aboutRef} />
           </center>
         </Grid>
-        <Divider text={dynamicText}></Divider>
       </Grid>
       <div ref={aboutRef}>{/* Empty div to assign ref */}</div>
     </main>

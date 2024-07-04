@@ -9,6 +9,7 @@ import Experience from "./views/ExperiencePage";
 import Loader from "./components/common/Loader";
 import Navbar from "./components/common/Navbar";
 import Cursor from "./components/common/Cursor";
+import ContactPage from "./components/common/Footer";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -41,6 +42,7 @@ function App() {
       <About />
       <Skills />
       <Experience />
+      <ContactPage />
     </>
   );
 }

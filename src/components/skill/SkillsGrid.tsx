@@ -24,7 +24,7 @@ const SkillsGrid: React.FC = () => {
           xs={6}
           sm={4}
           md={3}
-          lg={4}
+          lg={3}
           key={index}
           display="flex"
           justifyContent="center"

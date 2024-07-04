@@ -18,7 +18,7 @@ const Cursor: React.FC = () => {
   const handleMouseLeave = () => setCursorSize(20);
 
   useHoverEffect(
-    ".nav__item, .arrow-container, .profile__item, .card-container, .card-skills-container",
+    ".nav__item, .arrow-container, .profile__item, .card-container, .card-skills-container, .contact-details__item",
     handleMouseEnter,
     handleMouseLeave
   );
