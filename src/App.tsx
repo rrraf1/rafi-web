@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, Suspense } from "react";
 import { loadData } from "./api/data";
 
 import LandingPage from "./views/LandingPage";
@@ -36,13 +36,15 @@ function App() {
 
   return (
     <>
-      <Cursor />
-      <Navbar />
-      <LandingPage />
-      <About />
-      <Skills />
-      <Experience />
-      <ContactPage />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Cursor />
+        <Navbar />
+        <LandingPage />
+        <About />
+        <Skills />
+        <Experience />
+        <ContactPage />
+      </Suspense>
     </>
   );
 }
