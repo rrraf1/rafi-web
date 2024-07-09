@@ -19,11 +19,8 @@ function App() {
   useEffect(() => {
     const loadPromise = loadData();
 
-    // Ensure the intro video is shown for at least 4 seconds
     const minLoadingTime = new Promise<void>((resolve) => {
-      setTimeout(() => {
-        resolve();
-      }, 4000);
+      setTimeout(resolve, 4000);
     });
 
     Promise.all([loadPromise, minLoadingTime]).then(() => {
@@ -34,8 +31,8 @@ function App() {
   useEffect(() => {
     if (dataLoaded && videoRef.current) {
       videoRef.current.onended = () => setLoading(false);
-      // If video fails to load or play, we still want to show the content
       videoRef.current.onerror = () => setLoading(false);
+      videoRef.current.play().catch(() => setLoading(false));
     }
   }, [dataLoaded]);
 
