@@ -12,24 +12,33 @@ function App() {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    const isFirstVisit = !sessionStorage.getItem('visited');
-    const loadPromise = loadData();
+    const isFirstVisit = !localStorage.getItem("visited");
 
-    loadPromise.then(() => {
+    const loadEverything = async () => {
+      await loadData(); // Load data
+      await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulate loading of other components
+
       setInitialLoading(false);
+
       if (isFirstVisit) {
-        sessionStorage.setItem('visited', 'true');
+        localStorage.setItem("visited", "true");
         setShowIntro(true);
       }
-    });
+    };
+
+    loadEverything();
   }, []);
+
+  const handleIntroEnd = () => {
+    setShowIntro(false);
+  };
 
   if (initialLoading) {
     return <CircularLoader />;
   }
 
   if (showIntro) {
-    return <Loader ref={videoRef} onIntroEnd={() => setShowIntro(false)} />;
+    return <Loader ref={videoRef} onIntroEnd={handleIntroEnd} />;
   }
 
   return (
