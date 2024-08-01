@@ -1,49 +1,54 @@
 import { useState, useEffect, useRef } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { loadData } from "./api/data";
-
-import LandingPage from "./views/LandingPage";
-import About from "./views/AboutPage";
-import Skills from "./views/SkillsPage";
-import Experience from "./views/ExperiencePage";
-
+import LandingPage from "./pages/LandingPage";
+import ExperiencePage from "./pages/ExperienceDetail";
 import Loader from "./components/common/Loader";
-import Navbar from "./components/common/Navbar";
-import Cursor from "./components/common/Cursor";
-import ContactPage from "./components/common/Footer";
+import CircularLoader from "./components/common/CircularLoader";
 
 function App() {
-  const [loading, setLoading] = useState(true);
+  const [initialLoading, setInitialLoading] = useState(true);
+  const [showIntro, setShowIntro] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    const loadPromise = loadData();
+    const isFirstVisit = !localStorage.getItem("visited");
 
-    // Ensure the intro video is shown for at least 4 seconds
-    const minLoadingTime = new Promise<void>((resolve) => {
-      setTimeout(() => {
-        resolve();
-      }, 4000);
-    });
+    const loadEverything = async () => {
+      await loadData(); // Load data
+      await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulate loading of other components
 
-    Promise.all([loadPromise, minLoadingTime]).then(() => {
-      setLoading(false);
-    });
+      setInitialLoading(false);
+
+      if (isFirstVisit) {
+        localStorage.setItem("visited", "true");
+        setShowIntro(true);
+      }
+    };
+
+    loadEverything();
   }, []);
 
-  if (loading) {
-    return <Loader ref={videoRef} />;
+  const handleIntroEnd = () => {
+    setShowIntro(false);
+  };
+
+  if (initialLoading) {
+    return <CircularLoader />;
+  }
+
+  if (showIntro) {
+    return <Loader ref={videoRef} onIntroEnd={handleIntroEnd} />;
   }
 
   return (
-    <>
-      <Cursor />
-      <Navbar />
-      <LandingPage />
-      <About />
-      <Skills />
-      <Experience />
-      <ContactPage />
-    </>
+    <Router>
+      <Routes>
+        <Route path="/project/absensi" element={<ExperiencePage />} />
+        <Route path="/" element={<LandingPage />} />
+        <Route path="*" element={<LandingPage />} />
+      </Routes>
+    </Router>
   );
 }
 
