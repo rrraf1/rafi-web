@@ -12,20 +12,16 @@ function App() {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    const isFirstVisit = !localStorage.getItem('visited');
+    const isFirstVisit = !sessionStorage.getItem('visited');
     const loadPromise = loadData();
 
-    if (isFirstVisit) {
-      localStorage.setItem('visited', 'true');
-      loadPromise.then(() => {
-        setInitialLoading(false);
+    loadPromise.then(() => {
+      setInitialLoading(false);
+      if (isFirstVisit) {
+        sessionStorage.setItem('visited', 'true');
         setShowIntro(true);
-      });
-    } else {
-      loadPromise.then(() => {
-        setInitialLoading(false);
-      });
-    }
+      }
+    });
   }, []);
 
   if (initialLoading) {
