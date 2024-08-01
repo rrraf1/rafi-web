@@ -12,7 +12,7 @@ const ExperienceGrid: React.FC = () => {
   return (
     <Grid container className="card-grid">
       {images.map((image, index) => (
-        <Grid item key={index} xs={12} md={4} justifyContent={"center"}>
+        <Grid item key={index} xs={7} md={5} lg={5} mt={15} justifyContent={"center"}>
           <LazyExperienceCard image={image} link={links[index]} /> {/* Pass individual link */}
         </Grid>
       ))}

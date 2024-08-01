@@ -13,8 +13,8 @@ export default function LandingPage() {
       ,<Navbar />
       ,<Landing />
       ,<About />
-      ,<Experience />
       ,<Skills />
+      ,<Experience />
       ,<ContactPage />
     </>
   );

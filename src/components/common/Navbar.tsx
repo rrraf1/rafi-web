@@ -5,8 +5,8 @@ type SectionKey = "about" | "skills" | "experience" | "contact";
 function Navbar() {
   const sectionPositions: Record<SectionKey, number> = {
     about: 100,
-    skills: 200,
-    experience: 300,
+    skills: 215,
+    experience: 315 ,
     contact: 400,
   };
 

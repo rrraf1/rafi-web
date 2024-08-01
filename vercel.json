@@ -1,0 +1,16 @@
+{
+    "rewrites": [
+        {
+            "source": "/project/absensi",
+            "destination": "/project/absensi"
+        },
+        {
+            "source": "/",
+            "destination": "/"
+        },
+        {
+            "source": "**",
+            "destination": "/"
+        }
+    ]
+}
