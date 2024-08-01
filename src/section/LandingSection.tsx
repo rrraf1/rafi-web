@@ -6,7 +6,7 @@ import { Box, Grid } from "@mui/material";
 import ScrollButton from "../components/common/ScrollBottom";
 import decoration1 from "../assets/decoration-1.svg";
 
-function LandingPage() {
+function Landing() {
   const container = useRef(null);
   const aboutRef = useRef(null);
 
@@ -58,4 +58,4 @@ function LandingPage() {
   );
 }
 
-export default LandingPage;
+export default Landing;

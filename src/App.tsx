@@ -1,49 +1,49 @@
 import { useState, useEffect, useRef } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { loadData } from "./api/data";
-
-import LandingPage from "./views/LandingPage";
-import About from "./views/AboutPage";
-import Skills from "./views/SkillsPage";
-import Experience from "./views/ExperiencePage";
-
+import LandingPage from "./pages/LandingPage";
+import ExperiencePage from "./pages/ExperienceDetail";
 import Loader from "./components/common/Loader";
-import Navbar from "./components/common/Navbar";
-import Cursor from "./components/common/Cursor";
-import ContactPage from "./components/common/Footer";
+import CircularLoader from "./components/common/CircularLoader";
 
 function App() {
-  const [loading, setLoading] = useState(true);
+  const [initialLoading, setInitialLoading] = useState(true);
+  const [showIntro, setShowIntro] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
+    const isFirstVisit = !localStorage.getItem('visited');
     const loadPromise = loadData();
 
-    // Ensure the intro video is shown for at least 4 seconds
-    const minLoadingTime = new Promise<void>((resolve) => {
-      setTimeout(() => {
-        resolve();
-      }, 4000);
-    });
-
-    Promise.all([loadPromise, minLoadingTime]).then(() => {
-      setLoading(false);
-    });
+    if (isFirstVisit) {
+      localStorage.setItem('visited', 'true');
+      loadPromise.then(() => {
+        setInitialLoading(false);
+        setShowIntro(true);
+      });
+    } else {
+      loadPromise.then(() => {
+        setInitialLoading(false);
+      });
+    }
   }, []);
 
-  if (loading) {
-    return <Loader ref={videoRef} />;
+  if (initialLoading) {
+    return <CircularLoader />;
+  }
+
+  if (showIntro) {
+    return <Loader ref={videoRef} onIntroEnd={() => setShowIntro(false)} />;
   }
 
   return (
-    <>
-      <Cursor />
-      <Navbar />
-      <LandingPage />
-      <About />
-      <Skills />
-      <Experience />
-      <ContactPage />
-    </>
+    <Router>
+      <Routes>
+        <Route path="/project/absensi" element={<ExperiencePage />} />
+        <Route path="/" element={<LandingPage />} />
+        <Route path="*" element={<LandingPage />} />
+      </Routes>
+    </Router>
   );
 }
 
