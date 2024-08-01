@@ -12,7 +12,7 @@ function App() {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    const isFirstVisit = !localStorage.getItem("visited");
+    const isNewSession = !sessionStorage.getItem("sessionStarted");
 
     const loadEverything = async () => {
       await loadData(); // Load data
@@ -20,8 +20,8 @@ function App() {
 
       setInitialLoading(false);
 
-      if (isFirstVisit) {
-        localStorage.setItem("visited", "true");
+      if (isNewSession) {
+        sessionStorage.setItem("sessionStarted", "true");
         setShowIntro(true);
       }
     };
