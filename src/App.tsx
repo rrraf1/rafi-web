@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { loadData } from "./api/data";
 import LandingPage from "./pages/LandingPage";
@@ -7,38 +7,39 @@ import Loader from "./components/common/Loader";
 import CircularLoader from "./components/common/CircularLoader";
 
 function App() {
-  const [initialLoading, setInitialLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
   const [showIntro, setShowIntro] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const [introDone, setIntroDone] = useState(false);
 
   useEffect(() => {
-    const isNewSession = !sessionStorage.getItem("sessionStarted");
+    const hasSeenIntro = localStorage.getItem("hasSeenIntro");
+    
+    if (!hasSeenIntro) {
+      setShowIntro(true);
+      localStorage.setItem("hasSeenIntro", "true");
+    } else {
+      setIntroDone(true);
+    }
 
-    const loadEverything = async () => {
+    const initialize = async () => {
       await loadData(); // Load data
-      await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulate loading of other components
-
-      setInitialLoading(false);
-
-      if (isNewSession) {
-        sessionStorage.setItem("sessionStarted", "true");
-        setShowIntro(true);
-      }
+      setLoading(false);
     };
 
-    loadEverything();
+    initialize();
   }, []);
 
   const handleIntroEnd = () => {
     setShowIntro(false);
+    setIntroDone(true);
   };
 
-  if (initialLoading) {
-    return <CircularLoader />;
+  if (showIntro) {
+    return <Loader onIntroEnd={handleIntroEnd} />;
   }
 
-  if (showIntro) {
-    return <Loader ref={videoRef} onIntroEnd={handleIntroEnd} />;
+  if (loading && !introDone) {
+    return <CircularLoader />;
   }
 
   return (
