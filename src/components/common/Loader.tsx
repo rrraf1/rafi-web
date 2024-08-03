@@ -3,11 +3,7 @@ import introVideo from "../../assets/introkomp.mp4";
 import introTabVideo from "../../assets/intro-tab.mp4";
 import introMobileVideo from "../../assets/intro-mobile.mp4";
 
-interface LoaderProps {
-  onIntroEnd: () => void;
-}
-
-const Loader = React.forwardRef<HTMLVideoElement, LoaderProps>(({ onIntroEnd }, ref) => {
+const Loader = React.forwardRef<HTMLVideoElement>((_, ref) => {
   const [videoSrc, setVideoSrc] = useState(introVideo);
 
   useEffect(() => {
@@ -22,9 +18,8 @@ const Loader = React.forwardRef<HTMLVideoElement, LoaderProps>(({ onIntroEnd }, 
       }
     };
 
-    updateVideoSrc();
+    updateVideoSrc(); // Set the initial video source
     window.addEventListener("resize", updateVideoSrc);
-
     return () => {
       window.removeEventListener("resize", updateVideoSrc);
     };
@@ -32,14 +27,7 @@ const Loader = React.forwardRef<HTMLVideoElement, LoaderProps>(({ onIntroEnd }, 
 
   return (
     <div style={loaderStyle}>
-      <video
-        ref={ref}
-        style={videoStyle}
-        src={videoSrc}
-        autoPlay
-        muted
-        onEnded={onIntroEnd}
-      />
+      <video ref={ref} style={videoStyle} src={videoSrc} autoPlay muted />
     </div>
   );
 });

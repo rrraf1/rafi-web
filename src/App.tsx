@@ -1,55 +1,53 @@
-import { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useState, useEffect, useRef } from "react";
 import { loadData } from "./api/data";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
 import ExperiencePage from "./pages/ExperienceDetail";
 import Loader from "./components/common/Loader";
-import CircularLoader from "./components/common/CircularLoader";
+
+function checkVisit() {
+  const visited = localStorage.getItem("visited");
+  return visited === "true";
+}
 
 function App() {
   const [loading, setLoading] = useState(true);
-  const [showIntro, setShowIntro] = useState(false);
-  const [introDone, setIntroDone] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    const hasSeenIntro = localStorage.getItem("hasSeenIntro");
-    
-    if (!hasSeenIntro) {
-      setShowIntro(true);
-      localStorage.setItem("hasSeenIntro", "true");
-    } else {
-      setIntroDone(true);
+    if (checkVisit()) {
+      setLoading(false);
+      return;
     }
 
-    const initialize = async () => {
-      await loadData(); // Load data
-      setLoading(false);
-    };
+    const loadPromise = loadData();
 
-    initialize();
+    const minLoadingTime = new Promise<void>((resolve) => {
+      setTimeout(() => {
+        resolve();
+      }, 4000);
+    });
+    
+    Promise.all([loadPromise, minLoadingTime]).then(() => {
+      localStorage.setItem("visited", "true"); 
+      setLoading(false);
+    });
   }, []);
 
-  const handleIntroEnd = () => {
-    setShowIntro(false);
-    setIntroDone(true);
-  };
-
-  if (showIntro) {
-    return <Loader onIntroEnd={handleIntroEnd} />;
-  }
-
-  if (loading && !introDone) {
-    return <CircularLoader />;
+  if (loading) {
+    return <Loader ref={videoRef} />; // Tampilkan Loader selama loading
   }
 
   return (
-    <Router>
-      <Routes>
-        <Route path="/project/absensi" element={<ExperiencePage />} />
-        <Route path="/" element={<LandingPage />} />
-        <Route path="*" element={<LandingPage />} />
-      </Routes>
-    </Router>
+    <>
+      <Router>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/project/:projectName" element={<ExperiencePage />} />
+          <Route path="*" element={<LandingPage />} />
+        </Routes>
+      </Router>
+    </>
   );
 }
 
