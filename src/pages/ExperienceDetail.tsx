@@ -1,6 +1,12 @@
+import { Stack, Box } from "@mui/material"
+
 function ExperiencePage() {
     return(
-        1
+        <>
+        <Stack>
+            
+        </Stack>
+        </>
     )
 }
 
