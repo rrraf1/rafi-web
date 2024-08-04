@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
 import ExperiencePage from "./pages/ExperienceDetail";
 import Loader from "./components/common/Loader";
-import "../style/main.css"
+import "./style/main.css"
 
 function checkVisit() {
   const visited = localStorage.getItem("visited");
