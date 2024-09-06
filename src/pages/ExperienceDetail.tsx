@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { Grid, Stack, Box, Container } from "@mui/material";
 import { useParams } from "react-router-dom";
 import data from "../api/experienceData";
@@ -8,18 +8,6 @@ function ExperiencePage() {
   const content = data[projectName as keyof typeof data];
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const mainImageRef = useRef<HTMLDivElement>(null);
-  const [mainImageHeight, setMainImageHeight] = useState(0);
-
-  useEffect(() => {
-    const updateHeight = () => {
-      if (mainImageRef.current) {
-        setMainImageHeight(mainImageRef.current.offsetHeight);
-      }
-    };
-    updateHeight();
-    window.addEventListener('resize', updateHeight);
-    return () => window.removeEventListener('resize', updateHeight);
-  }, []);
 
   if (!content) {
     return <div>Project not found</div>;
@@ -33,9 +21,9 @@ function ExperiencePage() {
 
   return (
     <Container maxWidth="lg" sx={{ my: 4 }} className="experience-page-container">
-      <Grid container spacing={3} justifyContent="center" className="experience-page-grid">
+      <Grid container spacing={1} justifyContent="center" className="experience-page-grid">
         {/* Main Image */}
-        <Grid item xs={12} md={8} className="main-image-grid-item">
+        <Grid item xs={12} md={8} lg={9} className="main-image-grid-item">
           <Box ref={mainImageRef} className="main-image-container">
             {content.images.map((image, index) => (
               <Box
@@ -48,17 +36,11 @@ function ExperiencePage() {
           </Box>
         </Grid>
         {/* Additional Images */}
-        <Grid item xs={12} md={4} className="additional-images-grid-item">
+        <Grid item xs={12} md={4} lg={3} className="additional-images-grid-item">
           <Stack 
             direction={{ xs: 'row', md: 'column' }}
             spacing={2} 
             className="additional-images-container"
-            sx={{ 
-              height: { 
-                xs: 'auto', 
-                md: `${mainImageHeight}px` 
-              } 
-            }}
           >
             {additionalImages.map((image, index) => (
               <Box 
