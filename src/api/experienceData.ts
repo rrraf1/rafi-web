@@ -7,6 +7,10 @@ import absensi1 from "../assets/absensi.png";
 import absensi2 from "../assets/absensi2.png";
 import absensi3 from "../assets/absensi3.png";
 import absensi4 from "../assets/absensi4.png";
+import eraTunes1 from "../assets/era-tunes.png"
+import eraTunes2 from "../assets/era-tunes-2.png"
+import eraTunes3 from "../assets/era-tunes-3.png"
+import eraTunes4 from "../assets/era-tunes-4.png"
 
 interface DataItem {
   images: string[];
@@ -39,6 +43,15 @@ const data: { [key: string]: DataItem } = {
       role: "Fullstack Developer",
     },
   },
+  eraTunes: {
+    images: [eraTunes1, eraTunes2, eraTunes3, eraTunes4],
+    text: {
+      title: "EraTunes",
+      description: "EraTunes adalah website dimana user bisa mendengarkan lagu hits dari berbagai dekade, cukup hanya dengan masuk menggunakan akun spotify mereka",
+      techstack: ["React JS", "Spotify API", "Three js"],
+      role: ""
+    }
+  }
 };
 
 export default data;

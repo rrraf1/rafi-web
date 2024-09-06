@@ -3,10 +3,11 @@ import { Grid } from "@mui/material";
 import LazyExperienceCard from "./LazyExperienceCard";
 
 import orbit from "@assets/orbit.png";
-import absensi from "@assets/absensi.png"; // Add more images if needed
+import absensi from "@assets/absensi.png";
+import eratunes from "@assets/era-tunes.png"
 
-const images = [orbit, absensi];
-const links = ["/project/orbit", "/project/absensi"]; // Ensure each link is a single string
+const images = [orbit, absensi, eratunes];
+const links = ["/project/orbit", "/project/absensi", "/project/eraTunes"]; // Ensure each link is a single string
 
 const ExperienceGrid: React.FC = () => {
   return (

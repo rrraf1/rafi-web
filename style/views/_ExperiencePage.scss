@@ -20,7 +20,7 @@
 .main-image-container {
   position: relative;
   height: 0;
-  padding-bottom: 66.67%; // 3:2 aspect ratio
+  padding-bottom: 66.67%;
   width: 100%;
   overflow: hidden;
 
@@ -29,7 +29,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: fit-content;
     opacity: 0;
     transition: opacity 0.2s ease-in-out;
 
@@ -40,7 +40,7 @@
     img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
     }
   }
 }
@@ -49,7 +49,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100%;
+  height: 80%;
   
   @media (max-width: 959px) {
     flex-direction: row;
@@ -61,11 +61,11 @@
   .thumbnail {
     flex: 1;
     position: relative;
-    overflow: hidden;
+    width: 50%;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     transition: border 0.3s ease-in-out;
-    margin-bottom: 16px;
+    margin-bottom: 10px;
 
     &:last-child {
       margin-bottom: 0;
