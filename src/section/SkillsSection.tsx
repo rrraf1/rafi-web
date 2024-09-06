@@ -1,5 +1,6 @@
 import { Grid } from "@mui/material";
 import SkillsGrid from "../components/skill/SkillsGrid";
+import '../../style/main.css'
 
 function Skills() {
   return (

@@ -2,6 +2,7 @@ import { useRef, useEffect } from "react";
 import { Box, Grid } from "@mui/material";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import '../../style/main.css'
 
 import ProfileImage from "../components/about/ProfilePicture";
 

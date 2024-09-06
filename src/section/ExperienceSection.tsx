@@ -1,4 +1,5 @@
 import { Grid } from "@mui/material";
+import '../../style/main.css'
 import ExperienceGrid from "../components/experience/ExperienceGrid";
 
 function Experience() {
