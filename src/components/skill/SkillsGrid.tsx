@@ -13,8 +13,8 @@ import vue from "@assets/vue.svg";
 import react from "@assets/react.svg";
 import mysql from "@assets/mysql.svg";
 import pgsql from "@assets/pgsql.svg";
-
-const images = [css, html, js, node, python, scss, vue, react, express, mysql, pgsql];
+import go from "@assets/go.svg"
+const images = [css, html, js, node, python, scss, vue, react, express, mysql, pgsql, go];
 
 const SkillsGrid: React.FC = () => {
   return (
