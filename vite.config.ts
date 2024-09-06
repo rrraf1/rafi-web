@@ -17,11 +17,4 @@ export default defineConfig({
       '@styles': path.resolve(__dirname, './style'),
     },
   },
-  css: {
-    preprocessorOptions: {
-      scss: {
-        additionalData: `@import "./src/styles/main.scss";`, // Jika menggunakan SCSS
-      },
-    },
-  },
 });

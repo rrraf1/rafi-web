@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "build-css": "sass src/styles/main.scss src/styles/main.css",
     "build": "tsc && vite build && npx javascript-obfuscator dist/assets --output dist/assets --compact true --control-flow-flattening true",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
