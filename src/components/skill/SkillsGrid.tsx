@@ -7,7 +7,6 @@ import express from "@assets/express.svg";
 import html from "@assets/html.svg";
 import js from "@assets/js.svg";
 import node from "@assets/node.svg";
-import python from "@assets/python.svg";
 import scss from "@assets/scss.svg";
 import vue from "@assets/vue.svg";
 import react from "@assets/react.svg";
@@ -20,7 +19,6 @@ const images = [
   html,
   js,
   node,
-  // python,
   scss,
   vue,
   react,
