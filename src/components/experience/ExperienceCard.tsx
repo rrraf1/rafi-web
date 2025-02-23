@@ -9,9 +9,17 @@ interface ExperienceCardProps {
 
 const ExperienceCard: React.FC<ExperienceCardProps> = ({ image, link }) => {
   return (
-    <Grid container justifyContent={"center"} className="card-experience-container noselect">
+    <Grid
+      container
+      justifyContent={"center"}
+      className="card-experience-container noselect"
+    >
       <a href={link}>
-        <img src={image} className="card__thumbnail" alt="Project experience thumbnail" />
+        <img
+          src={image}
+          className="card__thumbnail"
+          alt="Thumbnail pengalaman proyek"
+        />
         <Grid item className="card__overlay"></Grid>
       </a>
     </Grid>

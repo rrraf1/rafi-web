@@ -2,7 +2,7 @@ import { useRef, useEffect } from "react";
 import { Box, Grid } from "@mui/material";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import '../../style/main.css'
+import "../../style/main.css";
 
 import ProfileImage from "../components/about/ProfilePicture";
 
@@ -10,7 +10,6 @@ import sideProfile from "../assets/side-profile.jpeg";
 import decoration2 from "../assets/decoration-2.svg";
 
 function About() {
-
   const container = useRef(null);
   const profileRef = useRef<HTMLImageElement | null>(null);
 
@@ -69,13 +68,12 @@ function About() {
           marginTop={"15vh"}
         >
           <Box>
-            <h1 className="about__title">About Me</h1>
+            <h1 className="about__title">Tentang Saya</h1>
             <h2 className="about__content">
-              Hey there! I'm Rafi, a passionate student who's all about
-              mastering web development, especially the frontend, over at SMKN 4
-              Bandung. But I don't stop at schoolwork - I love diving into
-              online courses and getting my hands dirty with real projects to
-              keep honing my skills.
+              Hai! Saya Rafi, seorang siswa yang bersemangat untuk menguasai
+              pengembangan web, terutama Backend. Saya tidak berhenti di
+              pekerjaan sekolah, saya suka mengikuti kursus online dan terlibat
+              dalam proyek nyata untuk terus mengasah keterampilan saya.
             </h2>
           </Box>
         </Grid>
@@ -92,8 +90,7 @@ function About() {
           />
         </Grid>
       </Grid>
-      <Grid>
-      </Grid>
+      <Grid></Grid>
       <Grid marginTop={"-40vh"} position={"absolute"}>
         <img src={decoration2} className="noselect decoration-2" alt="" />
       </Grid>

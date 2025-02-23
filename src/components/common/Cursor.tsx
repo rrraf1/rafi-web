@@ -48,7 +48,7 @@ const Cursor: React.FC = () => {
         }}
       >
         {isHoveringCardExperience && (
-          <span className="see-project">See Project</span>
+          <span className="see-project">Lihat Proyek</span>
         )}
       </Grid>
     </Grid>

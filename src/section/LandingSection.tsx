@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import '../../style/main.css'
+import "../../style/main.css";
 import { Box, Grid } from "@mui/material";
 import ScrollButton from "../components/common/ScrollBottom";
 import decoration1 from "../assets/decoration-1.svg";
@@ -37,11 +37,12 @@ function Landing() {
           >
             <Box>
               <strong>
-                <h1 className="author__name">Hi! I'm Rafi Rizqullah Ramadhan</h1>
+                <h1 className="author__name">
+                  Hai! Saya Rafi Rizqullah Ramadhan
+                </h1>
               </strong>
               <h2 className="author__description">
-                Aspiring Web Developer from Indonesia | Currently studying
-                Software Development at SMKN 4 Bandung
+                Pengembang Web dari Indonesia | Sedang menempuh pendidikan di SMKN 4 Bandung
               </h2>
             </Box>
           </Grid>
